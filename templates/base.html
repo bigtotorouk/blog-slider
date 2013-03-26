@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+		<link href="/static/css/base.css" media="screen" rel="stylesheet" type="text/css"/>				
+		<title>{% block title %}{% endblock %}</title>
+		{% block extra_header %}{% endblock %}
+		{% block js_header %}{% endblock %}
+	</head>
+	<body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
+			<div class="content_title">
+				{% block content_title %}{% endblock %}
+			</div>
+			<div id="header">
+				<div id="banner">
+					<h1>The blog of slider</h1>
+				</div>
+				<div id="nav">
+					<ul>
+						<li><a href="/auth/login/?next={{ request.get_full_path }}">Login</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="/auth/register/?next={{ request.get_full_path }}">Register</a></li>
+					</ul>	
+			
+				</div>
+			</div>
+			<div id="content_left">
+				{% block content_left %}{% endblock %}
+			</div>
+			<div id="content_right">
+				{% block content_right %}{% endblock %}
+			</div>
+			<div id="content_center">
+				{% block content_center %}{% endblock %}
+				{% block content-related %} {% endblock %}
+			</div>
+
+		
+	</body>
+
+</html>

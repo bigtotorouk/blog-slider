@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %} article list page {% endblock %}
+{% block extra_header %}
+<link href="/static/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+{% endblock %}
+{% block content_left %}
+{% if post_dict %}
+<div>
+{% for year,posts_months in post_dict.iteritems %}	
+<ul><a href='post/{{ year }}/'>{{ year }}</a>({{ posts|length }})
+	{% for month,posts_month in posts_months.iteritems  %}
+	{% if posts_month %}
+	<li>
+	<span class="month_name">{{ posts_month.0.created|date:'F' }}</span>
+	<span class="month_counter">{{ posts_month|length }}</span>
+	</li>	
+	{% endif %}
+	{% endfor %}
+</ul>
+{% endfor %}
+</div>
+{% endif %}
+{% endblock %}
+{% block content_right %}
+<ul>
+	<li>2012</li>
+	<li>2011</li>
+	<li>2010</li>
+</ul>
+{% endblock %}

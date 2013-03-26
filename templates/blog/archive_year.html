@@ -1,0 +1,27 @@
+{% extends "blog/blog_base.html" %}
+{% block content_center %}
+{% if post_page %}
+{% for post in post_page %}
+<div class="listposts">
+	<h2 class="post_title"><a  href="#">{{ post.title }}</a></h2>
+	<p class="post_content">{{ post.content }}</p>
+	<p class="post_bottom"><span id="datetime">Time: {{ post.created|date:"Y-m-d H:i:s" }}</span><span id="username">Author: {{ post.creator.username }}</span></p>
+</div>
+{% endfor %}
+<div class="pagination">
+	<span class="step-links">
+		{% if post_page.has_previous %}
+		<a href="?page={{ post_page.previous_page_number }}">previous</a>
+		{% endif %}
+
+		<span class="current">
+			Page {{ post_page.number }} of {{ post_page.paginator.num_pages }}.
+		</span>
+
+		{% if post_page.has_next %}
+		<a href="?page={{ post_page.next_page_number }}">next</a>
+		{% endif %}
+	</span>
+</div>
+{% endif %}
+{% endblock %}

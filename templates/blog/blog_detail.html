@@ -1,0 +1,15 @@
+{% extends "blog/blog_base.html" %}
+{% block content_center %}
+{% load comments %}
+{% if post %}
+<div class="listposts">
+	<h2 class="post_title"><a  href="#">{{ post.title }}</a></h2>
+	<p class="post_content">{{ post.content }}</p>
+	<p class="post_bottom"><span id="datetime">Time: {{ post.created|date:"Y-m-d H:i:s" }}</span><span id="username">Author: {{ post.creator.username }}</span></p>
+</div>
+{% endif %}
+{% get_comment_count for post as comment_count %}
+total {{ comment_count }}comments:
+{% render_comment_list for post %}
+{% render_comment_form for post %}
+{% endblock %}

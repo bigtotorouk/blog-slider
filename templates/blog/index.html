@@ -1,0 +1,17 @@
+{% extends "blog/blog_base.html" %}
+{% block js_header %}
+	<script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript">
+	</script>
+{% endblock %}
+{% block content_center %}
+{% if posts %}
+{% for post in posts %}
+<div class="listposts">
+	<h2 class="post_title"><a  href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+	<p class="post_content">{{ post.content }}</p>
+	<p class="post_bottom"><span id="datetime">Time: {{ post.created|date:"Y-m-d H:i:s" }}</span><span id="username">Author: {{ post.creator.username }}</span></p>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock %}

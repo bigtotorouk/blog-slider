@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content_title %}
+<h1>welcome to register yourself</h1>
+{% endblock %}
+{% block content_center %}
+<form method="post" action="">{% csrf_token %}
+	{% if field in userform %}
+		{{ field.errors }}
+	{% endif %}
+	{% if userform.username.errors %}
+	<p class="errors">{{ userform.username.errors.as_text }}</p>
+	{% endif %}
+	<p><label>Your name:{{ userform.username }}</label></p>
+	{% if userform.password.errors %}
+	<p class="errors">{{ userform.password.errors.as_text }}</p>
+	{% endif %}
+	<p><label>Your password: {{userform.password  }}</label></p>
+	{% if userform.password2.errors %}
+	<p class="errors">{{ userform.password2.errors.as_text }}</p>
+	{% endif %}
+	<p><label>Repeat your password: {{ userform.password2 }}</label></p>
+	{% if userform.email.errors %}
+	<p class="errors">{{ userform.email.errors.as_text }}</p>
+	{% endif %}
+	<p><label>Your e-mail: {{ userform.email }}</label></p>
+	<p class="submit"><input type="submit" value="Save &rarr;"></p>
+</form>
+{% endblock %}

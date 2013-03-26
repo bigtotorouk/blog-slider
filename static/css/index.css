@@ -1,0 +1,25 @@
+#content_left ul,#content_right ul {
+	list-style-type:none;
+}
+.listposts {
+	text-align: left;
+	border:1px solid #ccc;
+	margin-top: 10px;
+}
+.post_title  {
+	padding-top: 4px; padding-bottom: 4px;	
+	color: #ccc; font-size: 12px;
+}
+
+.post_bottom {
+	border-top: 1px solid #DDDDDD;
+	color: #888888;
+	font-size: 11.5px;
+	margin: 0;
+	padding: 4px;
+}
+span#datetime {
+}
+span#username {
+	float:right;
+}
